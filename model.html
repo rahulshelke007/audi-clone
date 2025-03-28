@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audi Car Selection</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background:rgb(190, 188, 188);
+        }
+        
+        .container-fluid {
+            width: 100vw !important; /* Ensure it spans the entire viewport width */
+            max-width: 100% !important; /* Prevent any unwanted shrinking */
+            padding: 0;
+            margin: 0;
+            display: flex; /* Helps in aligning child elements */
+        }
+
+        .container {
+            width: 100% !important;
+            max-width: 100% !important;
+            display: flex; /* Ensures it uses available space */
+           
+        }
+        
+        .sidebar {
+            width: 300px;
+            background: #fff;
+            padding: 45px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            min-height: 100vh; 
+            
+        }
+        
+        .sidebar h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        
+        .models-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Pushes icon to the right */
+            font-size: 20px; /* Adjust as needed */
+            width: 100%;
+            
+        }
+        
+        .models-heading i {
+            color: grey; /* Grey color for the icon */
+            font-size: 14px; /* Decrease size */
+            left-margin: 10px;
+        }
+        
+        .models-heading-custom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px; /* Increase left & right spacing */
+        }
+
+        .models-heading-custom i {
+            color: grey;
+            font-size: 14px; /* Adjust icon size */
+            margin-left: 150px; /* Space between text & icon */
+        }
+
+        .model-filters, .category-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            border-radius: 0 !important; /* Force no border-radius */
+            padding: 6px;
+        }
+        
+        .model-filters button, .category-filters button {
+            border-radius: 0 !important; /* Override any other styles */
+            color:rgb(108, 107, 107);
+        }
+        
+        button {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            background: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        button:hover {
+            background: #ddd;
+        }
+        
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            background:rgba(254, 254, 254, 0.88);
+            
+        }
+        
+        .car-grid {
+            display: flex;
+            gap: 20px;
+            border-radius: 0;
+        }
+        
+        .card{
+            border-radius: 0;
+            border:none;
+        }
+        
+        .car-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 0;
+            object-fit: cover;
+        }
+
+        .car-card-single {
+            width: 80%; /* Adjust width as needed */
+            max-width: 530px; /* Prevent it from becoming too wide */
+        }
+        
+        .car-card-single img {
+            object-fit: cover;
+        }
+
+        .car-card h4 {
+            margin: 10px 0;
+        }
+
+        .custom-card{
+            margin-left:80px;
+        }
+        
+        .discover {
+            background: black;
+            color: white;
+            padding: 10px;
+            width: 90%;
+            border: none;
+            border-radius: 0;
+            cursor: pointer;
+            margin: 10px auto;
+           
+        }
+        
+        .configure {
+            background: white;
+            color: black;
+            padding: 10px;
+            width: 90%;
+            border: 1px solid black;
+            border-radius: 0;
+            cursor: pointer;
+            margin-top: 10px;
+            margin: 10px auto;
+        }
+        
+        .discover:hover {
+            background: #333;
+        }
+        
+        .configure:hover {
+            background: #f4f4f4;
+        }
+
+        .all-model-color{
+            color:rgb(76, 75, 75);
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2 class="models-heading">
+                All models <i class="fas fa-chevron-right"></i>
+            </h2>
+            <div class="model-filters">
+                <button>Q8</button>
+                <button>Q8 e-tron</button>
+                <button>e-tron GT</button>
+                <button>A4</button>
+                <button>A5</button>
+                <button>A6</button>
+                <button>...</button>
+            </div>
+            <div class="category-filters py-5">
+                <button>Sportback</button>
+                <button>SUV</button>
+            </div>
+            <h2 class="models-heading-custom px-5">
+                 <i class="fas fa-chevron-right "></i>
+            </h2>
+            <div class="py-2">
+            <hr width="100%" size="2">
+            </div>
+        </aside>
+
+
+        <section class="main-content">
+            <section class="custom-card">
+                <p class=" all-model-color">All models (12)</p>
+                <h5 class="py-3">Q8</h5>
+            
+            <!-- Section 1 -->
+            <section class="car-grid">
+                <div class="card car-card">
+                    <img src="model_images/model1.jpg" alt="Audi Q8">
+                    <h4 class="px-3 py-2">Q8</h4>
+                    <button class="discover">Discover</button>
+                    <button class="configure">Configure</button>
+                </div>
+                <div class="card car-card">
+                    <img src="model_images/model2.jpg" alt="Audi RSQ8 Performance">
+                    <h4 class="px-3 py-2">RSQ8 Performance</h4>
+                    <button class="discover">Discover</button>
+                    <button class="configure">Configure</button>
+                </div>
+            </section>
+
+            <h5 class="py-5">Q8 e-tron</h5>
+
+            <!-- Section 2 -->
+            <section class="car-grid">
+                
+                <div class="card car-card">
+                    <img src="model_images/model3.jpg" alt="Audi A4">
+                    <h4 class="px-3 py-2">Q8 e-tron</h4>
+                    <button class="discover">Discover</button>
+                    <button class="configure">Configure</button>
+                </div>
+                <div class="card car-card">
+                    <img src="model_images/model4.jpg" alt="Audi A6">
+                    <h4 class="px-3 py-2">Q8 Sportback e-tron</h4>
+                    <button class="discover">Discover</button>
+                    <button class="configure">Configure</button>
+                </div>
+            </section>
+
+            <h5 class="py-5">e-tron GT</h5>
+
+            <!--Section 3-->
+            <section class="car-grid">
+                
+                <div class="card car-card-single">
+                    <img src="model_images/model5.jpg" alt="Audi A4">
+                    <h4 class="px-3 py-3">RS e-tron GT</h4>
+                    <button class="discover">Discover</button>
+                    <button class="configure">Configure</button>
+                </div>
+                
+            </section>
+
+            <h5 class="py-5">A4</h5>
+
+            <section class="car-grid">
+                
+                <div class="card car-card-single">
+                    <img src="model_images/model6.jpg" alt="Audi A4">
+                    <h4 class="px-3 py-3">A4 Sedan</h4>
+                    <button class="discover">Discover</button>
+                    <button class="configure">Configure</button>
+                </div>
+                
+            </section>
+
+            <h5 class="py-5">A5</h5>
+
+            <section class="car-grid">
+                
+                <div class="card car-card-single">
+                    <img src="model_images/model7.jpg" alt="Audi A4">
+                    <h4 class="px-3 py-3">S5 Sportback</h4>
+                    <button class="discover">Discover</button>
+                    <button class="configure">Configure</button>
+                </div>
+                
+            </section>
+
+            <h5 class="py-5">A6</h5>
+
+            <section class="car-grid">
+                
+                <div class="card car-card-single">
+                    <img src="model_images/model8.jpg" alt="Audi A4">
+                    <h4 class="px-3 py-3">A6 Sedan</h4>
+                    <button class="discover">Discover</button>
+                    <button class="configure">Configure</button>
+                </div>
+                
+            </section>
+           
+            <!--Section 4-->
+            <h5 class="py-5">Q3</h5>
+
+            <section class="car-grid">
+                
+                <div class="card car-card">
+                    <img src="model_images/model14.jpg" alt="Audi A4">
+                    <h4 class="px-3 py-2">Q3</h4>
+                    <button class="discover">Discover</button>
+                    <button class="configure">Configure</button>
+                </div>
+                <div class="card car-card">
+                    <img src="model_images/model10.jpg">
+                    <h4 class="px-3 py-2">Q3 Sportback</h4>
+                    <button class="discover">Discover</button>
+                    <button class="configure">Configure</button>
+                </div>
+            </section>
+
+            <!--Section 5-->
+            <h5 class="py-5">Q5</h5>
+
+            <section class="car-grid">
+                
+                <div class="card car-card-single">
+                    <img src="model_images/model11.jpg">
+                    <h4 class="px-3 py-2">Q5</h4>
+                    <button class="discover">Discover</button>
+                    <button class="configure">Configure</button>
+                </div>
+                
+            </section>
+
+            <h5 class="py-5">Q7</h5>
+
+            <section class="car-grid">
+                
+                <div class="card car-card-single">
+                    <img src="model_images/model12.jpg">
+                    <h4 class="px-3 py-2">Q7</h4>
+                    <button class="discover">Discover</button>
+                    <button class="configure">Configure</button>
+                </div>
+                
+            </section>
+
+        </section>
+
+        </section>
+    </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
