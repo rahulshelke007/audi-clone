@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audi RS Q8 - Power and Style</title>
+   <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            background-color: #b5997f;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+            border: 3px solid #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Container to wrap content */
+        .containerr {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            color: #000;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            display: flex;
+            /* justify-content: space-between; */
+            align-items: center;
+            z-index: 10;
+            background-color: rgb(255, 255, 255);
+            
+         
+            
+        }
+
+        .menu {
+            /* display: flex; */
+            /* flex-wrap: wrap; */
+        }
+
+        .menu a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 18px;
+            margin-left: 20px;
+            text-align: left;
+            /* white-space: nowrap; */
+   
+        }
+
+        .logo {
+            margin-left: 50%;
+        }
+        .logo img {
+            height: 40px;
+            margin-left: 100px;
+        }
+
+        /* Hero Section */
+        .hero {
+            width: 100%;
+            height: 100vh;
+            background:url('https://media.audi.com/is/image/audi/country/in/en/assets/home/226624AudiRSQ8LaunchKV1920x1080.jpg?width=1440') no-repeat center center/cover;
+            position: relative;
+            display: flex;
+         
+            align-items: center;
+            justify-content: flex-start;
+            padding: 5% 8%;
+        }
+
+        /* Overlay for dark effect */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* background: rgb(250, 80, 80); */
+         
+        }
+
+        /* Hero Content (Text + Button) */
+        .hero-content {
+            position: absolute;
+            top: 8rem;
+            left: 6rem;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            margin-top: 1px;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #fffcfc;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+
+        /* Button Styles */
+        .btn {
+            padding: 12px 24px;
+            background-color: #f9f6f6;
+            color: #030303;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            position: relative;
+            top: 2rem;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #a8a4a4;
+        }
+
+        /* RS Q8 Badge */
+        .rs-q8-badge {
+            position: absolute;
+            bottom: 5%;
+            left: 8%;
+            z-index: 3;
+        }
+
+        .rs-q8-badge img {
+            width: 150px;
+        }
+
+        /* second section white row */
+        .whiterow{
+            background-color: white;
+            height: 19rem;
+            width: 100%;
+        }
+        .whiterow h1{
+            color: #000;
+            font-size: 4rem;
+            text-align: center;
+            padding-top: 5.5rem;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 250;
+        }
+        .whiterow h6{
+            color: #000;
+            font-size: 2rem;
+            text-align: center;
+            padding-top: 2.5rem;
+        }
+        
+        /* section3 scrolling img  */
+        .body1 {
+            font-family: Arial, sans-serif;
+            background-image: url('model_images/home9.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            overflow-x: hidden;
+            position: relative;
+            padding: 8rem 0;
+        }
+
+        .scroll-container {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            width: 100%;
+            max-width: 1200px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            scroll-behavior: smooth;
+            margin-top: 8rem;
+            scrollbar-width: thin;
+            scrollbar-color: #888 #ddd;
+        }
+
+        .scroll-container::-webkit-scrollbar {
+            height: 10px;
+        }
+
+        .scroll-container::-webkit-scrollbar-track {
+            background: #ddd;
+            border-radius: 5px;
+        }
+
+        .scroll-container::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 5px;
+        }
+
+        .scroll-container::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .scroll-container img {
+            width: 100%;
+            flex: 0 0 auto;
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .nav-buttons {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            padding: 0 20px;
+            z-index: 5;
+        }
+
+        .nav-button {
+            pointer-events: all;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 24px;
+            z-index: 10;
+        }
+
+        .audi-chat {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background: red;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 14px;
+            z-index: 100;
+        }
+        
+        .Q8 {
+            position: absolute;
+            top: 135px;
+            left: 6rem;
+            font-size: 2rem;
+            color: #fff;
+            z-index: 5;
+        }
+        
+        .Qbtn1 {
+            position: absolute;
+            top: 730px;
+            left: 6rem;
+            font-size: 1.5rem;
+            color: #fff;
+            background-color: transparent;
+            height: 5rem;
+            width: 16rem;
+            border: 2px solid #f9f6f6;
+            cursor: pointer;
+            z-index: 5;
+        }
+        
+        .Qbtn2 {
+            position: absolute;
+            top: 730px;
+            left: 23rem;
+            font-size: 1.5rem;
+            color: #fff;
+            background-color: transparent;
+            height: 5rem;
+            width: 16rem;
+            border: 2px solid #f9f6f6;
+            cursor: pointer;
+            z-index: 5;
+        }
+
+        .Qbtn1:hover {
+            background-color: white;
+            color: #000;
+        }
+        
+        .Qbtn2:hover {
+            background-color: white;
+            color: #000;
+        }
+
+        /* 4th section  */
+        .body2 {
+            font-family: Arial, sans-serif;
+            width: 100%;
+            position: relative;
+            padding: 2rem 6rem;
+            background-color: white;
+        }
+
+        .disclaimer-box {
+            width: 100%;
+            height: 100px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            border: 1px solid #ccc;
+        }
+
+        .disclaimer-text {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+            text-align: left;
+        }
+                          
+        .body3 {
+            font-family: Arial, sans-serif;
+            background-image: url('model_images/home3.jpg');
+            display: flex;
+            background-repeat: no-repeat;
+            height: 1100px;
+            background-size: cover;
+            position: relative;
+            padding-top: 2rem;
+        }
+
+        .the-home {
+            background: white;
+            height: 270px;
+            padding: 30px;
+            position: relative;
+            margin-top: 170px;
+            margin-left: 7rem;
+            width: 500px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .h1class {
+            font-size: 30px;
+            color: #000;
+        }
+        
+        .seeing {
+            font-size: 18px;
+            color: #555;
+        }
+        
+        .button-home {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .button5 {
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            text-decoration: none;
+        }
+        
+        .black-button {
+            background: black;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .white-button {
+            border: 1px solid black;
+            background: white;
+            color: black;
+        }
+        
+        /* map section  */
+        .body4 {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+        }
+        
+        .map1 {
+            display: flex;
+            width: 100%;
+            height: auto;
+            align-items: center;
+            padding: 6rem;
+            flex-wrap: wrap;
+        }
+        
+        .map {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .map img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .dealer {
+            flex: 1;
+            text-align: left;
+            padding: 20px;
+            min-width: 300px;
+        }
+        
+        .dealer h1 {
+            font-size: 44px;
+            color: #333;
+        }
+        
+        .map-button {
+            display: inline-block;
+            margin-top: 90px;
+            padding: 10px 15px;
+            background: #333;
+            color: white;
+            height: 60px;
+            text-align: center;
+            width: 300px;
+            text-decoration: none;
+            font-size: 35px;
+            padding-top: 9px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        
+        /* black phone section */
+        .body5 {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: white;
+        }
+        
+        .black-container {
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .black-text-section {
+            width: 50%;
+            font-size: 33px;
+            min-width: 300px;
+        }
+        
+        .black-text-section h2 {
+            font-size: 54px;
+            margin-bottom: 20px;
+        }
+        
+        .black-text-section p {
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+        
+        .black-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .black-button {
+            background-color: white;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .phone-img {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            min-width: 300px;
+        }
+        
+        .phone-img img {
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+        
+        /* last img section  */
+        .body6 {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: black;
+            padding: 50px;
+        }
+        .main-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: left;
+            gap: 20px;
+        }
+        .card {
+            width: 48%;
+            text-align: left;
+            margin-left: 6rem;
+        }
+        .card1 {
+            width: 48%;
+            text-align: left;
+            margin-left:0.5rem;
+        }
+        .card img {
+            width: 100%;
+          
+        }
+        .card h3 {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        .card a {
+            display: block;
+            margin-top: 5px;
+            color: #000;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .card1 img {
+            width: 100%;
+          
+        }
+        .card1 h3 {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        .card1 a {
+            display: block;
+            margin-top: 5px;
+            color: #000;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .whiterow h1 {
+                font-size: 3rem;
+            }
+            
+            .black-text-section h2 {
+                font-size: 42px;
+            }
+            
+            .black-text-section p {
+                font-size: 22px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero-content {
+                left: 3rem;
+            }
+            
+            .Qbtn1, .Qbtn2 {
+                width: 12rem;
+                font-size: 1.2rem;
+            }
+            
+            .Qbtn2 {
+                left: 16rem;
+            }
+            
+            .the-home {
+                width: 400px;
+                margin-left: 3rem;
+            }
+            
+            .card, .card1 {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem 2%;
+            }
+            
+            .menu {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            .menu a {
+                margin: 5px 10px;
+                font-size: 16px;
+            }
+            
+            .hero-content {
+                top: 6rem;
+                left: 2rem;
+                max-width: 80%;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .whiterow h1 {
+                font-size: 2.5rem;
+            }
+            
+            .whiterow h6 {
+                font-size: 1.5rem;
+            }
+            
+            .Q8 {
+                left: 2rem;
+                font-size: 1.5rem;
+            }
+            
+            .Qbtn1, .Qbtn2 {
+                position: relative;
+                top: 250px;
+                left: 2rem;
+                margin-bottom: 10px;
+                width: 80%;
+                max-width: 300px;
+            }
+            
+            .Qbtn2 {
+                left: 2rem;
+            }
+            
+            .body2 {
+                padding: 2rem;
+            }
+            
+            .the-home {
+                width: 90%;
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+            
+            .black-text-section, .phone-img {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .black-buttons {
+                justify-content: center;
+            }
+            
+            .phone-img img {
+                margin-left: 0;
+                margin-top: 30px;
+            }
+            
+            .map1 {
+                padding: 2rem;
+            }
+            
+            .dealer {
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+            
+            .whiterow {
+                height: auto;
+                padding: 3rem 1rem;
+            }
+            
+            .whiterow h1 {
+                font-size: 2rem;
+                padding-top: 1rem;
+            }
+            
+            .whiterow h6 {
+                font-size: 1.2rem;
+            }
+            
+            .body1 {
+                padding: 4rem 0;
+            }
+            
+            .scroll-container {
+                margin-top: 4rem;
+            }
+            
+            .nav-button {
+                padding: 10px;
+                font-size: 18px;
+            }
+            
+            .h1class {
+                font-size: 24px;
+            }
+            
+            .seeing {
+                font-size: 16px;
+            }
+            
+            .dealer h1 {
+                font-size: 32px;
+            }
+            
+            .map-button {
+                width: 100%;
+                max-width: 250px;
+                font-size: 24px;
+            }
+        }
+   </style>
+</head>
+<body>
+    <div class="containerr">
+        <!-- Navigation -->
+        <nav class="navbar">
+         
+          
+            <div class="menu">
+                <a href="#">Models</a>
+                <a href="#">Used Cars</a>
+                <a href="#">Coustomer area </a>
+                <a href="#">Innovation</a>
+                <a href="#">Quick Links</a>
+            </div>
+            <div class="logo">
+                <svg  height="24" width="69" xmlns="http://www.w3.org/2000/svg"><path d="M56.927 0a11.798 11.798 0 00-7.495 2.671A11.906 11.906 0 0041.9 0a11.719 11.719 0 00-7.494 2.671C32.347 1.006 29.745 0 26.91 0a11.798 11.798 0 00-7.494 2.671C17.358 1.006 14.756 0 11.92 0 5.32 0 0 5.303 0 11.884c0 6.58 5.32 11.884 11.921 11.884 2.835 0 5.475-1.007 7.495-2.671 2.058 1.664 4.66 2.67 7.494 2.67 2.835 0 5.475-1.006 7.495-2.67a11.906 11.906 0 007.533 2.67c2.874 0 5.475-1.006 7.533-2.67 2.058 1.664 4.66 2.67 7.495 2.67 6.601 0 11.921-5.302 11.921-11.883C68.848 5.342 63.528 0 56.927 0zm-7.495 17.226a9.126 9.126 0 01-1.708-5.342c0-1.974.621-3.832 1.708-5.342a9.126 9.126 0 011.709 5.342c0 2.013-.66 3.832-1.709 5.342zm-15.027 0a9.126 9.126 0 01-1.709-5.342c0-1.974.621-3.832 1.709-5.342a9.126 9.126 0 011.708 5.342c0 2.013-.66 3.832-1.708 5.342zm-15.028 0a9.126 9.126 0 01-1.709-5.342c0-1.974.622-3.832 1.709-5.342a9.126 9.126 0 011.708 5.342c0 2.013-.66 3.832-1.708 5.342zM2.602 11.884c0-5.071 4.116-9.213 9.242-9.213a9.22 9.22 0 015.63 1.897c-1.592 2.013-2.524 4.529-2.524 7.316 0 2.748.932 5.303 2.524 7.316-1.553 1.2-3.495 1.897-5.63 1.897-5.087 0-9.242-4.103-9.242-9.213zM21.24 19.2c1.592-2.013 2.524-4.529 2.524-7.316 0-2.749-.932-5.303-2.524-7.316 1.553-1.2 3.495-1.897 5.63-1.897 2.136 0 4.078.697 5.63 1.897-1.591 2.013-2.523 4.529-2.523 7.316 0 2.748.932 5.303 2.524 7.316-1.553 1.2-3.495 1.897-5.63 1.897-2.136 0-4.078-.697-5.631-1.897zm15.028 0c1.592-2.013 2.524-4.529 2.524-7.316 0-2.749-.932-5.303-2.524-7.316 1.553-1.2 3.494-1.897 5.63-1.897a9.22 9.22 0 015.63 1.897c-1.591 2.013-2.523 4.529-2.523 7.316 0 2.748.932 5.303 2.524 7.316-1.554 1.2-3.495 1.897-5.63 1.897a9.22 9.22 0 01-5.631-1.897zm20.658 1.897a9.22 9.22 0 01-5.63-1.897c1.591-2.013 2.523-4.529 2.523-7.316 0-2.749-.932-5.303-2.524-7.316 1.554-1.2 3.495-1.897 5.63-1.897 5.088 0 9.243 4.103 9.243 9.213 0 5.11-4.155 9.213-9.242 9.213z" fill="#000" fill-rule="evenodd"></path></svg>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <h1>Power that packs<br> a punch and a smile.</h1>
+                <h2>#ThisIsAudi</h2>
+                <p>Experience the new Audi RS Q8 performance<br> with 640hp.</p>
+                <a href="#" class="btn">Know More</a>
+            </div>
+        </section>
+    </div>
+    <!-- section2  -->
+    <section>
+        <div class="whiterow">
+          <h1>Our New Models</h1>
+          <h6><u>View all models</u></h6>
+        </div>
+    </section>
+ 
+
+ <!-- scrolling img section -->
+ <div class="body1">
+    <div class="nav-buttons">
+        <div class="nav-button" onclick="scrollLeft()">&#9664;</div>
+        <div class="nav-button" onclick="scrollRight()">&#9654;</div>
+    </div>
+
+    <div class="scroll-container" id="scrollContainer">
+        <img src="model_images/home5.png" alt="Audi Q8 e-tron" >
+        <img src="model_images/home2.png" alt="Audi Q8 e-tron">
+        <img src="model_images/home1.png" alt="Audi Q8 e-tron">
+        <img src="model_images/home4.png" alt="Audi Q8 e-tron">
+        <img src="model_images/home8.png" alt="Audi Q8 e-tron">
+        <img src="model_images/home7.png" alt="Audi Q8 e-tron">
+    </div>
+
+    <div class="Q8"><h1>Q8 e-torn</h1></div>
+    <button class="Qbtn1">Configure</button>
+    <button class="Qbtn2">learn More</button>
+ </div>
+
+ <!-- 4th section  -->
+ <section class="body2">
+    <div class="disclaimer-box">
+        <p class="disclaimer-text">
+            Images & visuals shown are for illustrative & representational purposes only. 
+            Actual features and specifications may vary depending on variant and are subject to change without prior notice. 
+            Accessories, interiors, and features may vary and may not be part of standard equipment that is currently offered in India. 
+            Images are clicked in a country that follows Left Hand Drive. 
+            Dark shade on glass is due to lighting effect. Obey Traffic Rules.
+        </p>
+    </div>
+ </section>
+<!-- section 5th -->
+<section>
+   <div class="body3">
+        <div class="the-home">
+            <h1 class="h1class">The home of electric</h1>
+            <p class="seeing">Seeing the world with different eyes is what drives us. Discover more about our vision of the future of mobility. Learn more about the technology in the Audi e-tron along with the charging options, range calculations and its benefits.</p>
+            <div class="button-home">
+                <a href="#" class="button5 black-button">LEARN MORE</a>
+                <a href="#" class="button5 white-button">#FutureIsAnAttitude</a>
+            </div>
+        </div>
+    </div>
+ </section>
+
+ <!-- map section  -->
+ <section class="body4">
+    <div class="map1">
+        <div class="map">
+            <img src="model_images/home6.jpg" alt="Map">
+        </div>
+        <div class="dealer">
+            <h1>Dealer Locator</h1>
+            <a href="https://www.google.com/maps/@17.7662021,77.1499137,6z?entry=ttu&g_ep=EgoyMDI1MDMyNC4wIKXMDSoASAFQAw%3D%3D" class="map-button">Explore more</a>
+        </div>
+    </div>
+</section>
+
+<!-- black phone section  -->
+<section class="body5">
+    <div class="black-container">
+        <div class="black-text-section">
+            <h2>Because you expect more from your car</h2>
+            <p>More than just a drive from A to B. Download it now, to get more of your car on your phone.</p>
+            <div class="black-buttons">
+                <button class="black-button">Car Connect</button>
+                <button class="black-button">Car Shop</button>
+            </div>
+        </div>
+        <div class="phone-img">
+            <img src="model_images/home12.png" alt="Car App Display">
+        </div>
+    </div>
+</section>
+<!-- last img section  -->
+<!-- last img section  -->
+<section class="body6">
+    <div class="main-container">
+        <div class="card">
+            <img src="model_images/home10.png" alt="Book a Test Drive">
+            <h3>Book a Test Drive</h3>
+            <a href="#">Learn here ></a>
+        </div>
+        <div class="card1">
+            <img src="model_images/home11.png" alt="Audi Approved Plus">
+            <h3>Audi Approved Plus</h3>
+            <a href="#">Learn more ></a>
+        </div>
+       
+    </div>
+
+ </section>
+
+ <section class="body6">
+    <div class="main-container">
+        <div class="card">
+            <img src="model_images/home15.png" alt="Book a Test Drive">
+            <h3>Book Online Service</h3>
+            <a href="#">Learn here ></a>
+        </div>
+        <div class="card1">
+            <img src="model_images/home13.png" alt="Audi Approved Plus">
+            <h3>place Releases</h3>
+            <a href="#">Learn more ></a>
+        </div>
+       
+    </div>
+ <script>
+    function scrollLeft() {
+        document.getElementById('scrollContainer').scrollBy({ left: -1200, behavior: 'smooth' });
+    }
+
+    function scrollRight() {
+        document.getElementById('scrollContainer').scrollBy({ left: 1200, behavior: 'smooth' });
+    }
+ </script>
+</body>
+</html>
