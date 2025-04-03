@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audi Price Reckoner</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 1.5rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo {
+            width: 120px;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://www.audi.com/content/dam/gbp2/experience-audi/models-and-technology/concept-cars/audi-activesphere-concept/1920x1080-desktop/AAX_230110_0896.jpg') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #da291c;
+            color: #fff;
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: #b82218;
+            transform: translateY(-2px);
+        }
+
+        /* Price Calculator Section */
+        .calculator {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .calculator h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #000;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .result {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-top: 2rem;
+            text-align: center;
+            display: none;
+        }
+
+        .result h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #da291c;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #000;
+        }
+
+        /* Models Grid */
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .model-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .model-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .model-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .model-info {
+            padding: 1.5rem;
+        }
+
+        .model-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #000;
+        }
+
+        .model-price {
+            font-size: 1.1rem;
+            color: #da291c;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .model-features {
+            list-style-type: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .model-features li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .model-features li:before {
+            content: "•";
+            color: #da291c;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: #fff;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .calculator {
+                padding: 1.5rem;
+            }
+
+            .models-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .cta-button {
+                padding: 0.7rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+            }
+
+            .footer-links a {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://www.audi.com/etc/clientlibs/audi/components/core/header/resources/audi-logo.svg" alt="Audi Logo" class="logo">
+        <h1>Audi Price Reckoner</h1>
+    </header>
+
+    <section class="hero">
+        <h2>Find Your Perfect Audi</h2>
+        <button class="cta-button" id="exploreBtn">Explore Now</button>
+    </section>
+
+    <div class="container">
+        <section class="calculator">
+            <h3>Configure Your Audi</h3>
+            <form id="priceCalculator">
+                <div class="form-group">
+                    <label for="model">Select Model</label>
+                    <select id="model" required>
+                        <option value="">-- Select a Model --</option>
+                        <option value="a3">Audi A3</option>
+                        <option value="a4">Audi A4</option>
+                        <option value="a6">Audi A6</option>
+                        <option value="q3">Audi Q3</option>
+                        <option value="q5">Audi Q5</option>
+                        <option value="q7">Audi Q7</option>
+                        <option value="e-tron">Audi e-tron</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="trim">Select Trim Level</label>
+                    <select id="trim" required>
+                        <option value="">-- Select a Trim --</option>
+                        <!-- Options will be populated by JavaScript -->
+                    </div>
+
+                <div class="form-group">
+                    <label for="engine">Engine Type</label>
+                    <select id="engine" required>
+                        <option value="">-- Select Engine --</option>
+                        <!-- Options will be populated by JavaScript -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="options">Additional Options</label>
+                    <select id="options" multiple>
+                        <option value="premium_sound">Premium Sound System (+$1,200)</option>
+                        <option value="leather">Premium Leather Seats (+$2,500)</option>
+                        <option value="tech">Technology Package (+$3,000)</option>
+                        <option value="sport">Sport Package (+$2,200)</option>
+                        <option value="driver_assist">Driver Assistance Package (+$1,800)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="cta-button">Calculate Price</button>
+
+                <div class="result" id="result">
+                    <h4>Estimated Price</h4>
+                    <div class="price" id="calculatedPrice">$0</div>
+                </div>
+            </form>
+        </section>
+
+        <section class="models">
+            <h3>Popular Audi Models</h3>
+            <div class="models-grid" id="modelsGrid">
+                <!-- Models will be populated by JavaScript -->
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Find a Dealer</a>
+        </div>
+        <p class="copyright">© 2023 Audi AG. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Model data
+            const models = {
+                'a3': {
+                    name: 'Audi A3',
+                    basePrice: 34900,
+                    trims: [
+                        { name: 'Premium', price: 0 },
+                        { name: 'Premium Plus', price: 4000 },
+                        { name: 'Prestige', price: 8000 }
+                    ],
+                    engines: [
+                        { name: '2.0L TFSI (201hp)', price: 0 },
+                        { name: '2.0L TFSI Quattro (228hp)', price: 2500 }
+                    ],
+                    image: 'https://www.audi.com/content/dam/gbp2/models/a3/a3-sportback/1920x1080/1920x1080-aa3-2020-13891.jpg'
+                },
+                'a4': {
+                    name: 'Audi A4',
+                    basePrice: 39900,
+                    trims: [
+                        { name: 'Premium', price: 0 },
+                        { name: 'Premium Plus', price: 4500 },
+                        { name: 'Prestige', price: 9000 }
+                    ],
+                    engines: [
+                        { name: '2.0L TFSI (201hp)', price: 0 },
+                        { name: '2.0L TFSI Quattro (261hp)', price: 3000 },
+                        { name: '3.0L TFSI Quattro (349hp)', price: 8000 }
+                    ],
+                    image: 'https://www.audi.com/content/dam/gbp2/models/a4/a4-sedan/1920x1080/1920x1080-aa4-2020-13892.jpg'
+                },
+                'a6': {
+                    name: 'Audi A6',
+                    basePrice: 54900,
+                    trims: [
+                        { name: 'Premium', price: 0 },
+                        { name: 'Premium Plus', price: 5000 },
+                        { name: 'Prestige', price: 10000 }
+                    ],
+                    engines: [
+                        { name: '2.0L TFSI Quattro (248hp)', price: 0 },
+                        { name: '3.0L TFSI Quattro (335hp)', price: 6000 }
+                    ],
+                    image: 'https://www.audi.com/content/dam/gbp2/models/a6/a6-sedan/1920x1080/1920x1080-aa6-2020-13893.jpg'
+                },
+                'q3': {
+                    name: 'Audi Q3',
+                    basePrice: 36900,
+                    trims: [
+                        { name: 'Premium', price: 0 },
+                        { name: 'Premium Plus', price: 4000 },
+                        { name: 'Prestige', price: 8000 }
+                    ],
+                    engines: [
+                        { name: '2.0L TFSI (184hp)', price: 0 },
+                        { name: '2.0L TFSI Quattro (228hp)', price: 2500 }
+                    ],
+                    image: 'https://www.audi.com/content/dam/gbp2/models/q3/q3-suv/1920x1080/1920x1080-aq3-2020-13894.jpg'
+                },
+                'q5': {
+                    name: 'Audi Q5',
+                    basePrice: 43900,
+                    trims: [
+                        { name: 'Premium', price: 0 },
+                        { name: 'Premium Plus', price: 4500 },
+                        { name: 'Prestige', price: 9000 }
+                    ],
+                    engines: [
+                        { name: '2.0L TFSI Quattro (201hp)', price: 0 },
+                        { name: '3.0L TFSI Quattro (349hp)', price: 7000 }
+                    ],
+                    image: 'https://www.audi.com/content/dam/gbp2/models/q5/q5-suv/1920x1080/1920x1080-aq5-2020-13895.jpg'
+                },
+                'q7': {
+                    name: 'Audi Q7',
+                    basePrice: 57900,
+                    trims: [
+                        { name: 'Premium', price: 0 },
+                        { name: 'Premium Plus', price: 5000 },
+                        { name: 'Prestige', price: 10000 }
+                    ],
+                    engines: [
+                        { name: '2.0L TFSI Quattro (248hp)', price: 0 },
+                        { name: '3.0L TFSI Quattro (335hp)', price: 6000 }
+                    ],
+                    image: 'https://www.audi.com/content/dam/gbp2/models/q7/q7-suv/1920x1080/1920x1080-aq7-2020-13896.jpg'
+                },
+                'e-tron': {
+                    name: 'Audi e-tron',
+                    basePrice: 66900,
+                    trims: [
+                        { name: 'Premium', price: 0 },
+                        { name: 'Premium Plus', price: 6000 },
+                        { name: 'Prestige', price: 12000 }
+                    ],
+                    engines: [
+                        { name: 'Standard (355hp)', price: 0 },
+                        { name: 'Sportback (402hp)', price: 5000 }
+                    ],
+                    image: 'https://www.audi.com/content/dam/gbp2/models/e-tron/e-tron-suv/1920x1080/1920x1080-ae-2020-13897.jpg'
+                }
+            };
+
+            // Option prices
+            const optionPrices = {
+                'premium_sound': 1200,
+                'leather': 2500,
+                'tech': 3000,
+                'sport': 2200,
+                'driver_assist': 1800
+            };
+
+            // Populate models grid
+            const modelsGrid = document.getElementById('modelsGrid');
+            for (const modelId in models) {
+                const model = models[modelId];
+                const startingPrice = model.basePrice.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+                
+                const modelCard = document.createElement('div');
+                modelCard.className = 'model-card';
+                modelCard.innerHTML = `
+                    <img src="${model.image}" alt="${model.name}" class="model-image">
+                    <div class="model-info">
+                        <h4 class="model-name">${model.name}</h4>
+                        <p class="model-price">Starting at ${startingPrice}</p>
+                        <ul class="model-features">
+                            <li>${model.trims.length} trim levels available</li>
+                            <li>${model.engines.length} engine options</li>
+                            <li>Premium interior materials</li>
+                            <li>Audi virtual cockpit</li>
+                        </ul>
+                        <button class="cta-button" data-model="${modelId}" style="width: 100%;">Configure</button>
+                    </div>
+                `;
+                modelsGrid.appendChild(modelCard);
+            }
+
+            // Model select change handler
+            const modelSelect = document.getElementById('model');
+            modelSelect.addEventListener('change', function() {
+                const trimSelect = document.getElementById('trim');
+                const engineSelect = document.getElementById('engine');
+                
+                // Clear previous options
+                trimSelect.innerHTML = '<option value="">-- Select a Trim --</option>';
+                engineSelect.innerHTML = '<option value="">-- Select Engine --</option>';
+                
+                if (this.value) {
+                    const model = models[this.value];
+                    
+                    // Populate trim options
+                    model.trims.forEach(trim => {
+                        const option = document.createElement('option');
+                        option.value = trim.name;
+                        option.textContent = `${trim.name} (+${trim.price.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 })})`;
+                        trimSelect.appendChild(option);
+                    });
+                    
+                    // Populate engine options
+                    model.engines.forEach(engine => {
+                        const option = document.createElement('option');
+                        option.value = engine.name;
+                        option.textContent = `${engine.name} (+${engine.price.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 })})`;
+                        engineSelect.appendChild(option);
+                    });
+                }
+            });
+
+            // Configure buttons in models grid
+            document.querySelectorAll('.model-card .cta-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const modelId = this.getAttribute('data-model');
+                    modelSelect.value = modelId;
+                    
+                    // Trigger change event to populate trims and engines
+                    const event = new Event('change');
+                    modelSelect.dispatchEvent(event);
+                    
+                    // Scroll to calculator
+                    document.querySelector('.calculator').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            // Explore now button
+            document.getElementById('exploreBtn').addEventListener('click', function() {
+                document.querySelector('.calculator').scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // Form submission
+            document.getElementById('priceCalculator').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const modelId = document.getElementById('model').value;
+                const trim = document.getElementById('trim').value;
+                const engine = document.getElementById('engine').value;
+                const options = Array.from(document.getElementById('options').selectedOptions).map(option => option.value);
+                
+                if (!modelId || !trim || !engine) {
+                    alert('Please select model, trim, and engine to calculate price.');
+                    return;
+                }
+                
+                const model = models[modelId];
+                const selectedTrim = model.trims.find(t => t.name === trim);
+                const selectedEngine = model.engines.find(e => e.name === engine);
+                
+                let totalPrice = model.basePrice + selectedTrim.price + selectedEngine.price;
+                
+                // Add options prices
+                options.forEach(option => {
+                    totalPrice += optionPrices[option] || 0;
+                });
+                
+                // Display result
+                document.getElementById('calculatedPrice').textContent = 
+                    totalPrice.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+                document.getElementById('result').style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>

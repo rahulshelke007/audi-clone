@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myaudi connect</title>
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+            /* width: 100%; */
+        }
+       
+
+        #inner {
+            margin: 25px;
+        }
+
+        #one {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            gap: 20px;
+            
+        }
+
+        #one div {
+            width: 50%;
+        }
+
+        #one img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        #two {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            gap: 20px;
+            
+        }
+
+        #two div {
+            width: 50%;
+        }
+
+        #two img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .full-width-img {
+
+            width: 100%;
+            height: 100vh;
+            display: block;
+            margin: 0 auto;
+
+            object-fit: cover;
+
+        }
+        .mar-div{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 25px;
+
+        }
+        @media (max-width: 768px) {
+            #one{
+                flex-direction: column;
+            }
+            #two{
+                flex-direction: column;
+            }
+            #one div{
+                width: auto;
+            }
+            #two div{
+                width: auto;
+            }
+        }
+        #inner #a1{
+            font-family: AudiType, sans-serif;
+            font-size: 21px;
+            font-weight: 700;
+        }
+        #inner p{
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 20px;
+        }
+        #one p{
+            font-size: 25px;
+            font-weight: 100;
+        }
+        #two p{
+            font-size: 25px;
+            font-weight: 100;
+        }
+        #last-p{
+            font-size: 30px;
+            text-align: center;
+            padding: 50px;
+        }
+        .navbar {
+            color: #000;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            display: flex;
+            /* justify-content: space-between; */
+            align-items: center;
+            z-index: 10;
+            background-color: rgb(255, 255, 255);
+            
+         
+            
+        }
+
+        .menu {
+            display: flex; 
+            flex-wrap: wrap;
+            margin-left: 630px;
+
+        }
+
+        .menu a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 18px;
+            margin-left: 30px;
+            text-align: right;
+            white-space: nowrap;
+           
+   
+        }
+
+       /* Menu Overlay and Side Menu Styles */
+ .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            max-width: 400px;
+            height: 100%;
+            background-color: white;
+            z-index: 1000;
+            transition: left 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .side-menu.active {
+            left: 0;
+        }
+
+        .menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .menu-header h2 {
+            color: #000;
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+
+        .close-menu {
+            background: none;
+            border: none;
+            color: #000;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .menu-items {
+            padding: 1rem 0;
+        }
+
+        .menu-item {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #f5f5f5;
+            color: #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .menu-item span {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #000;
+        }
+
+        .menu-item i {
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+            color: #000;
+        }
+
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background-color: #f9f9f9;
+        }
+
+        .submenu.active {
+            max-height: 500px;
+        }
+
+        .submenu-item {
+            padding: 1rem 2rem;
+            color: #000;
+            display: block;
+            text-decoration: none;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .submenu-item:hover {
+            background-color: #f0f0f0;
+        }
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+            border: 3px solid #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Container to wrap content */
+        .containerr {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            color: #000;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            display: flex;
+            /* justify-content: space-between; */
+            align-items: center;
+            z-index: 10;
+            background-color: rgb(255, 255, 255);
+            justify-content: space-between;
+         
+            
+        }
+
+        .menu {
+            display: flex; 
+            flex-wrap: wrap;
+            margin-left: 630px;
+
+        }
+
+        .menu a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 18px;
+            margin-left: 30px;
+            text-align: right;
+            white-space: nowrap;
+           
+   
+        }
+
+        .menu-btn {
+            background: none;
+            border: none;
+            color: #000;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .menu-btn i, .menu-btn span {
+            color: #000;
+        }
+
+#text {
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideUp 1s forwards;
+}
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <button class="menu-btn" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+            <span>Menu</span>
+        </button>
+        <div class="logo">
+            <svg  height="24" width="69" xmlns="http://www.w3.org/2000/svg"><path d="M56.927 0a11.798 11.798 0 00-7.495 2.671A11.906 11.906 0 0041.9 0a11.719 11.719 0 00-7.494 2.671C32.347 1.006 29.745 0 26.91 0a11.798 11.798 0 00-7.494 2.671C17.358 1.006 14.756 0 11.92 0 5.32 0 0 5.303 0 11.884c0 6.58 5.32 11.884 11.921 11.884 2.835 0 5.475-1.007 7.495-2.671 2.058 1.664 4.66 2.67 7.494 2.67 2.835 0 5.475-1.006 7.495-2.67a11.906 11.906 0 007.533 2.67c2.874 0 5.475-1.006 7.533-2.67 2.058 1.664 4.66 2.67 7.495 2.67 6.601 0 11.921-5.302 11.921-11.883C68.848 5.342 63.528 0 56.927 0zm-7.495 17.226a9.126 9.126 0 01-1.708-5.342c0-1.974.621-3.832 1.708-5.342a9.126 9.126 0 011.709 5.342c0 2.013-.66 3.832-1.709 5.342zm-15.027 0a9.126 9.126 0 01-1.709-5.342c0-1.974.621-3.832 1.709-5.342a9.126 9.126 0 011.708 5.342c0 2.013-.66 3.832-1.708 5.342zm-15.028 0a9.126 9.126 0 01-1.709-5.342c0-1.974.622-3.832 1.709-5.342a9.126 9.126 0 011.708 5.342c0 2.013-.66 3.832-1.708 5.342zM2.602 11.884c0-5.071 4.116-9.213 9.242-9.213a9.22 9.22 0 015.63 1.897c-1.592 2.013-2.524 4.529-2.524 7.316 0 2.748.932 5.303 2.524 7.316-1.553 1.2-3.495 1.897-5.63 1.897-5.087 0-9.242-4.103-9.242-9.213zM21.24 19.2c1.592-2.013 2.524-4.529 2.524-7.316 0-2.749-.932-5.303-2.524-7.316 1.553-1.2 3.495-1.897 5.63-1.897 2.136 0 4.078.697 5.63 1.897-1.591 2.013-2.523 4.529-2.523 7.316 0 2.748.932 5.303 2.524 7.316-1.553 1.2-3.495 1.897-5.63 1.897-2.136 0-4.078-.697-5.631-1.897zm15.028 0c1.592-2.013 2.524-4.529 2.524-7.316 0-2.749-.932-5.303-2.524-7.316 1.553-1.2 3.494-1.897 5.63-1.897a9.22 9.22 0 015.63 1.897c-1.591 2.013-2.523 4.529-2.523 7.316 0 2.748.932 5.303 2.524 7.316-1.554 1.2-3.495 1.897-5.63 1.897a9.22 9.22 0 01-5.631-1.897zm20.658 1.897a9.22 9.22 0 01-5.63-1.897c1.591-2.013 2.523-4.529 2.523-7.316 0-2.749-.932-5.303-2.524-7.316 1.554-1.2 3.495-1.897 5.63-1.897 5.088 0 9.243 4.103 9.243 9.213 0 5.11-4.155 9.213-9.242 9.213z" fill="#000" fill-rule="evenodd"></path></svg>
+        </div>
+        <i style="color: black; font-size: 20px; font-weight: 100px; margin-left:120px;" class="fa fa-search"></i>
+
+    </nav>
+
+    <!-- Menu Overlay -->
+    <div class="menu-overlay"></div>
+
+    <!-- Side Menu -->
+    <div class="side-menu">
+        <div class="menu-header">
+            <h2>Menu</h2>
+            <button class="close-menu" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="menu-items">
+            <div class="menu-item" data-target="models-submenu">
+               <a href="model.html"> <span>Models</span></a>
+                <!-- <i class="fas fa-chevron-right"></i> -->
+            </div>
+            <div class="submenu" id="models-submenu">
+                <!-- <a href="model.html" class="submenu-item">All Models</a> -->
+                <!-- <a href="#" class="submenu-item">Used Cars</a>
+                <a href="#" class="submenu-item">Customer area</a>
+                <a href="#" class="submenu-item">Innovation</a>
+                <a href="#" class="submenu-item">Quick Links</a> -->
+            </div>
+
+            <div class="menu-item" data-target="used-cars-submenu">
+                <span>Used cars</span>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="submenu" id="used-cars-submenu">
+                <a href="#" class="submenu-item">Audi Approved Plus</a>
+                <a href="#" class="submenu-item">Find Used Cars</a>
+                <a href="#" class="submenu-item">Sell Your Audi</a>
+            </div>
+
+            <div class="menu-item" data-target="customer-area-submenu">
+                <span>Customer area</span>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="submenu" id="customer-area-submenu">
+                <a href="audi-owners.html" class="submenu-item">Audi Owners</a>
+                <a href="audi-sevices.html" class="submenu-item">Audi Service</a>
+                <a href="myaudi_connect.html" class="submenu-item">myAudi Connect</a>
+                <a href="Audi_club-reward.html" class="submenu-item">Audi Club Rewards</a>
+                <a href="Sustainability.html" class="submenu-item">Sustainability</a>
+            </div>
+
+            <div class="menu-item" data-target="innovation-submenu">
+                <span>Innovation</span>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="submenu" id="innovation-submenu">
+                <a href="#" class="submenu-item">#FutureIsAnAttitude</a>
+                <a href="#" class="submenu-item">Audi Urbansphere</a>
+                <a href="#" class="submenu-item">Electric Mobility</a>
+            </div>
+
+            <div class="menu-item" data-target="quick-links-submenu">
+                <span>Quick Links</span>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="submenu" id="quick-links-submenu">
+                <a href="#" class="submenu-item">Dealer Locator</a>
+                <a href="#" class="submenu-item">Book a Service</a>
+                <a href="#" class="submenu-item">Careers</a>
+                <a href="#" class="submenu-item">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+
+    <img src="https://media.audi.com/is/image/audi/country/in/en/assets/home/MyAudiConnect.jpg?width=1440" alt="img" class="full-width-img">
+    
+    <div id="main-info">
+        <div id="inner">
+            <p id="a1">myAudi Connect App</p><br><br>
+            <p>Your phone is now your car</p><br>
+            <p>This Application represents the digital connection between driver and vehicle. It bundles all elements
+                that use online connectivity with the vehicle to provide you with real-time information.</p><br>
+            <p>To use these services, existing Audi owners need to download and activate the ‘myAudi Connect’ app on
+                their smartphone. They can create their ‘myAudi Connect’ account easily via the ‘myAudi Connect’ App.
+            </p><br>
+            <p>Divided under five key headings-the App brings the customer Safety & Security, Driver’s Behavior,
+                Lifestyle, Geo Location and Utility.</p><br>
+        </div>
+    </div><br><br>
+
+    <div id="one">
+        <div class="mar-div">
+            <h2>Some of the key features include:</h2><br>
+            <p>• Live location and trip planning feature offers a way for the user to know where he has been, where he is or how he headed to a specific spot.</p>
+            <p>• Boundary settings and curfews setting feature helps customer in marking safe zones for the family and car.</p>
+            <p>• Vehicle Health feature enables customers to know and keep track of their Audi’s health at all times through Audi’s vehicle health feature.</p>
+        </div>
+        <div class="mar-div">
+            <img src="https://media.audi.com/is/image/audi/nemo/in/teaser-new-home-full-width/2019/news/image2019_2.jpg?width=1422&auto=webp" alt="img">
+        </div>
+    </div><br><br>
+
+    <div id="two">
+        <div class="mar-div">
+            <img src="https://media.audi.com/is/image/audi/nemo/in/teaser-new-home-full-width/2019/Banner/Image/Tow_Alert.jpg?width=1422&auto=webp" alt="img">
+        </div>
+        <div class="mar-div">
+            <p>• Tow Alert helps the customers in getting an alert immediately if the car is being towed. The app also informs customers on where exactly has the car been towed to.</p>
+            <p>• The Disturbance Alert feature alerts customers on any kind of disturbance when the car is not in use.</p>
+            <p>• There is also a Notification of Alerts feature that keeps track of all the notifications related to the car so that customer can review it any time.</p>
+        </div>
+    </div><br><br>
+
+    <div>
+        <img src="https://media.audi.com/is/image/audi/nemo/in/teaser-new-home-full-width/2019/news/image2019_1.jpg?width=1440" alt="img" class="full-width-img">
+    </div><br><br>
+
+    
+</body>
+<script> function scrollLeft() {
+    document.getElementById('scrollContainer').scrollBy({ left: -1200, behavior: 'smooth' });
+}
+
+function scrollRight() {
+    document.getElementById('scrollContainer').scrollBy({ left: 1200, behavior: 'smooth' });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Menu functionality
+    const menuBtn = document.querySelector('.menu-btn');
+    const closeMenuBtn = document.querySelector('.close-menu');
+    const menuOverlay = document.querySelector('.menu-overlay');
+    const sideMenu = document.querySelector('.side-menu');
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    // Open menu
+    menuBtn.addEventListener('click', function() {
+        sideMenu.classList.add('active');
+        menuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    });
+
+    // Close menu
+    function closeMenu() {
+        sideMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = ''; // Enable scrolling
+    }
+
+    closeMenuBtn.addEventListener('click', closeMenu);
+    menuOverlay.addEventListener('click', closeMenu);
+
+    // Toggle submenu
+    menuItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-target');
+            const submenu = document.getElementById(targetId);
+            
+            // Check if this submenu is already active
+            const isActive = submenu.classList.contains('active');
+            
+            // Close all submenus first
+            document.querySelectorAll('.submenu').forEach(sub => {
+                sub.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.menu-item i').forEach(icon => {
+                icon.style.transform = 'rotate(0deg)';
+            });
+            
+            // Toggle the clicked submenu
+            if (!isActive) {
+                submenu.classList.add('active');
+                this.querySelector('i').style.transform = 'rotate(90deg)';
+            }
+        });
+    });
+
+    // Back to top button functionality
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    
+    backToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Show/hide back to top button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+            backToTopBtn.style.opacity = '1';
+        } else {
+            backToTopBtn.style.opacity = '0.7';
+        }
+    });
+    
+    // Mobile menu toggle for footer sections (optional enhancement)
+    if (window.innerWidth < 768) {
+        const footerHeadings = document.querySelectorAll('.footer-section h3');
+        
+        footerHeadings.forEach(heading => {
+            heading.addEventListener('click', function() {
+                const list = this.nextElementSibling;
+                if (list.style.maxHeight) {
+                    list.style.maxHeight = null;
+                } else {
+                    list.style.maxHeight = list.scrollHeight + 'px';
+                }
+                this.classList.toggle('active');
+            });
+            
+            // Initialize all lists as closed
+            const list = heading.nextElementSibling;
+            list.style.maxHeight = null;
+            
+            // Add a plus/minus indicator
+            heading.style.position = 'relative';
+            heading.style.cursor = 'pointer';
+            
+            const indicator = document.createElement('span');
+            indicator.innerHTML = '+';
+            indicator.style.position = 'absolute';
+            indicator.style.right = '0';
+            indicator.style.top = '0';
+            indicator.style.fontSize = '18px';
+            heading.appendChild(indicator);
+            
+            heading.addEventListener('click', function() {
+                if (indicator.innerHTML === '+') {
+                    indicator.innerHTML = '-';
+                } else {
+                    indicator.innerHTML = '+';
+                }
+            });
+        });
+    }
+    
+    // Chat button functionality (optional)
+    const chatButton = document.querySelector('.chat-button');
+    
+    chatButton.addEventListener('click', function() {
+        alert('Chat functionality would open here');
+    });
+});</script>
+</html>
