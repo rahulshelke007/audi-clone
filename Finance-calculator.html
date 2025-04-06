@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <title>Audi Customer Care</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  /* Menu Overlay and Side Menu Styles */
+ .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1000;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+}
+
+.side-menu.active {
+    left: 0;
+}
+
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.menu-header h2 {
+    color: #000;
+    font-size:3rem;
+    font-weight: 400;
+}
+
+.close-menu {
+    background: none;
+    border: none;
+    color: #000;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.menu-items {
+    padding: 1rem 0;
+}
+
+.menu-item {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #f5f5f5;
+    color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menu-item span {
+  font-size: 1.5rem;
+    font-weight: 400;
+    color: #3d3c3c;
+}
+
+.menu-item i {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+    color: #000;
+}
+
+.submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+.submenu.active {
+    max-height: 500px;
+}
+
+.submenu-item {
+    padding: 1rem 2rem;
+    color: #000;
+    display: block;
+    text-decoration: none;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.submenu-item:hover {
+    background-color: #f0f0f0;
+}
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+    border: 3px solid #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Container to wrap content */
+.containerr {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Navigation Bar */
+.navbar {
+    color: #000;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 1rem 5%;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    z-index: 10;
+    background-color: rgb(255, 255, 255);
+    justify-content: space-between;
+ 
+    
+}
+
+.menu {
+    display: flex; 
+    flex-wrap: wrap;
+    margin-left: 630px;
+
+}
+
+.menu a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 18px;
+    margin-left: 30px;
+    text-align: right;
+    white-space: nowrap;
+   
+
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    color: #000;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.menu-btn i, .menu-btn span {
+    color: #000;
+}
+
+#text {
+padding: 20px;
+opacity: 0;
+transform: translateY(50px);
+animation: slideUp 1s forwards;
+}
+  /* Hero Section */
+  .hero {
+    background: url('https://media.audi.com/is/image/audi/nemo/in/Banners/faq_des.jpg?width=1440') no-repeat center center/cover;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  
+  /* Dark gradient overlay */
+  .overlay {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0,0,0,0.2));
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  
+  /* Content box */
+  .content {
+    text-align: left;
+    padding: 30px;
+    width: 100%;
+    margin-top: 0px;
+  }
+  
+  .content h1 {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 500;
+    
+
+  }
+  
+  /* Responsive text */
+  @media (min-width: 768px) {
+    .content h1 {
+      font-size: 2.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .content h1 {
+      font-size: 3rem;
+    }
+  }
+
+
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+  }
+  
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer {
+    background-color: #000;
+    padding: 2rem 1rem;
+  }
+  
+  .footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 2rem;
+  }
+  
+  .footer-column h4 {
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-column li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+  }
+  
+  .legal-links {
+    margin-bottom: 1rem;
+  }
+  
+  .legal-links a {
+    margin: 0 0.5rem;
+    font-size: 0.8rem;
+  }
+  
+ 
+  
+  .footer-social {
+    margin: 1rem 0;
+  }
+  
+  .footer-social a {
+    margin: 0 10px;
+  }
+  
+  #backToTop {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    cursor: pointer;
+  }
+  
+  #backToTop:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    .footer-top {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  .disclaimer {
+    font-size: 12px;
+    color: #999;
+    line-height: 1.5;
+}
+.disclaimer p {
+    margin-bottom: 15px;
+}
+  </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <button class="menu-btn" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+            <span>Menu</span>
+        </button>
+        <div class="logo">
+            <svg  height="24" width="69" xmlns="http://www.w3.org/2000/svg"><path d="M56.927 0a11.798 11.798 0 00-7.495 2.671A11.906 11.906 0 0041.9 0a11.719 11.719 0 00-7.494 2.671C32.347 1.006 29.745 0 26.91 0a11.798 11.798 0 00-7.494 2.671C17.358 1.006 14.756 0 11.92 0 5.32 0 0 5.303 0 11.884c0 6.58 5.32 11.884 11.921 11.884 2.835 0 5.475-1.007 7.495-2.671 2.058 1.664 4.66 2.67 7.494 2.67 2.835 0 5.475-1.006 7.495-2.67a11.906 11.906 0 007.533 2.67c2.874 0 5.475-1.006 7.533-2.67 2.058 1.664 4.66 2.67 7.495 2.67 6.601 0 11.921-5.302 11.921-11.883C68.848 5.342 63.528 0 56.927 0zm-7.495 17.226a9.126 9.126 0 01-1.708-5.342c0-1.974.621-3.832 1.708-5.342a9.126 9.126 0 011.709 5.342c0 2.013-.66 3.832-1.709 5.342zm-15.027 0a9.126 9.126 0 01-1.709-5.342c0-1.974.621-3.832 1.709-5.342a9.126 9.126 0 011.708 5.342c0 2.013-.66 3.832-1.708 5.342zm-15.028 0a9.126 9.126 0 01-1.709-5.342c0-1.974.622-3.832 1.709-5.342a9.126 9.126 0 011.708 5.342c0 2.013-.66 3.832-1.708 5.342zM2.602 11.884c0-5.071 4.116-9.213 9.242-9.213a9.22 9.22 0 015.63 1.897c-1.592 2.013-2.524 4.529-2.524 7.316 0 2.748.932 5.303 2.524 7.316-1.553 1.2-3.495 1.897-5.63 1.897-5.087 0-9.242-4.103-9.242-9.213zM21.24 19.2c1.592-2.013 2.524-4.529 2.524-7.316 0-2.749-.932-5.303-2.524-7.316 1.553-1.2 3.495-1.897 5.63-1.897 2.136 0 4.078.697 5.63 1.897-1.591 2.013-2.523 4.529-2.523 7.316 0 2.748.932 5.303 2.524 7.316-1.553 1.2-3.495 1.897-5.63 1.897-2.136 0-4.078-.697-5.631-1.897zm15.028 0c1.592-2.013 2.524-4.529 2.524-7.316 0-2.749-.932-5.303-2.524-7.316 1.553-1.2 3.494-1.897 5.63-1.897a9.22 9.22 0 015.63 1.897c-1.591 2.013-2.523 4.529-2.523 7.316 0 2.748.932 5.303 2.524 7.316-1.554 1.2-3.495 1.897-5.63 1.897a9.22 9.22 0 01-5.631-1.897zm20.658 1.897a9.22 9.22 0 01-5.63-1.897c1.591-2.013 2.523-4.529 2.523-7.316 0-2.749-.932-5.303-2.524-7.316 1.554-1.2 3.495-1.897 5.63-1.897 5.088 0 9.243 4.103 9.243 9.213 0 5.11-4.155 9.213-9.242 9.213z" fill="#000" fill-rule="evenodd"></path></svg>
+        </div>
+        <i style="color: black; font-size: 20px; font-weight: 100px; margin-left:120px;" class="fa fa-search"></i>
+
+    </nav>
+
+    <!-- Menu Overlay -->
+    <div class="menu-overlay"></div>
+
+    <!-- Side Menu -->
+    <div class="side-menu">
+        <div class="menu-header">
+            <h2>Menu</h2>
+            <button class="close-menu" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="menu-items">
+            <div class="menu-item" data-target="models-submenu">
+               <a href="model.html"> <span>Models</span></a>
+                <!-- <i class="fas fa-chevron-right"></i> -->
+            </div>
+            <div class="submenu" id="models-submenu">
+                <!-- <a href="model.html" class="submenu-item">All Models</a> -->
+                <!-- <a href="#" class="submenu-item">Used Cars</a>
+                <a href="#" class="submenu-item">Customer area</a>
+                <a href="#" class="submenu-item">Innovation</a>
+                <a href="#" class="submenu-item">Quick Links</a> -->
+            </div>
+
+            <div class="menu-item" data-target="used-cars-submenu">
+                <span>Used cars</span>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="submenu" id="used-cars-submenu">
+                <a href="#" class="submenu-item">Audi Approved Plus</a>
+                <a href="#" class="submenu-item">Find Used Cars</a>
+                <a href="#" class="submenu-item">Sell Your Audi</a>
+            </div>
+
+            <div class="menu-item" data-target="customer-area-submenu">
+                <span>Customer area</span>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="submenu" id="customer-area-submenu">
+                <a href="audi-owners.html" class="submenu-item">Audi Owners</a>
+                <a href="audi-sevices.html" class="submenu-item">Audi Service</a>
+                <a href="myaudi_contact.html" class="submenu-item">myAudi Contact</a>
+                <a href="Audi_club-reward.html" class="submenu-item">Audi Club Rewards</a>
+                <a href="Sustainability.html" class="submenu-item">Sustainability</a>
+            </div>
+
+            <div class="menu-item" data-target="innovation-submenu">
+                <span>Innovation</span>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="submenu" id="innovation-submenu">
+                <a href="#" class="submenu-item">#FutureIsAnAttitude</a>
+                <a href="#" class="submenu-item">Audi Urbansphere</a>
+                <a href="#" class="submenu-item">Electric Mobility</a>
+            </div>
+
+            <div class="menu-item" data-target="quick-links-submenu">
+                <span>Quick Links</span>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="submenu" id="quick-links-submenu">
+    
+                <a href="contact.html" class="submenu-item">Contact & Service</a>
+                <a href="Finance-calculator.html" class="submenu-item">Finance calculator</a>
+                <a href="audi-shop/audi-shop.html" class="submenu-item">audi-shop</a>
+                <a href="serive-cost.html" class="submenu-item">Service Cost Calculator & Service Plans & Extended Warranty</a>
+            </div>
+            </div>
+        </div>
+    </div>
+  <div class="hero">
+    <div class="overlay">
+      <div class="content">
+        <h1>Audi Finance Calculator</h1>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-column">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="#">All Models</a></li>
+          <li><a href="#">Model price list</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Used Cars</h4>
+        <ul>
+          <li><a href="#">Audi Approved Plus</a></li>
+          <li><a href="#">Dealer Locator</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Customer Area</h4>
+        <ul>
+          <li><a href="#">Audi Owners</a></li>
+          <li><a href="#">Audi Service</a></li>
+          <li><a href="#">myAudi Connect</a></li>
+          <li><a href="#">Audi Club Rewards</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Audi Assist</a></li>
+          <li><a href="#">Book a test drive</a></li>
+          <li><a href="#">Audi Accident Management</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Innovation</h4>
+        <ul>
+          <li><a href="#">#FutureIsAnAttitude</a></li>
+          <li><a href="#">Audi Urbansphere</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Audi Shop</a></li>
+          <li><a href="#">Imprint</a></li>
+          <li><a href="#">Corporate Governance</a></li>
+          <li><a href="#">Contact / Newsletter</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="legal-links">
+        <a href="#">Legal</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Press</a>
+        <a href="#">Cookie Settings</a>
+        <a href="#">Careers</a>
+      </div>
+
+      <p class="disclaimer">
+        *The specified values of fuel consumption and emission are determined according to the mandatory emission test measurement specified in Rule 115...
+      </p>
+
+      <div class="footer-social">
+        <a href="#"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/facebook-new.png" alt="FB"/></a>
+        <a href="#"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/instagram-new.png" alt="IG"/></a>
+        <a href="#"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/youtube-play.png" alt="YT"/></a>
+      </div>
+
+      <button id="backToTop">Back to top ↑</button>
+
+      <p class="copyright">
+        © 2024 © AUDI AG.
+      </p>
+    </div>
+   
+  </footer>
+
+</body>
+<script>document.getElementById('backToTop').addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+  function scrollLeft() {
+    document.getElementById('scrollContainer').scrollBy({ left: -1200, behavior: 'smooth' });
+}
+
+function scrollRight() {
+    document.getElementById('scrollContainer').scrollBy({ left: 1200, behavior: 'smooth' });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Menu functionality
+    const menuBtn = document.querySelector('.menu-btn');
+    const closeMenuBtn = document.querySelector('.close-menu');
+    const menuOverlay = document.querySelector('.menu-overlay');
+    const sideMenu = document.querySelector('.side-menu');
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    // Open menu
+    menuBtn.addEventListener('click', function() {
+        sideMenu.classList.add('active');
+        menuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    });
+
+    // Close menu
+    function closeMenu() {
+        sideMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = ''; // Enable scrolling
+    }
+
+    closeMenuBtn.addEventListener('click', closeMenu);
+    menuOverlay.addEventListener('click', closeMenu);
+
+    // Toggle submenu
+    menuItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-target');
+            const submenu = document.getElementById(targetId);
+            
+            // Check if this submenu is already active
+            const isActive = submenu.classList.contains('active');
+            
+            // Close all submenus first
+            document.querySelectorAll('.submenu').forEach(sub => {
+                sub.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.menu-item i').forEach(icon => {
+                icon.style.transform = 'rotate(0deg)';
+            });
+            
+            // Toggle the clicked submenu
+            if (!isActive) {
+                submenu.classList.add('active');
+                this.querySelector('i').style.transform = 'rotate(90deg)';
+            }
+        });
+    });
+
+    // Back to top button functionality
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    
+    backToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Show/hide back to top button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+            backToTopBtn.style.opacity = '1';
+        } else {
+            backToTopBtn.style.opacity = '0.7';
+        }
+    });
+    
+    // Mobile menu toggle for footer sections (optional enhancement)
+    if (window.innerWidth < 768) {
+        const footerHeadings = document.querySelectorAll('.footer-section h3');
+        
+        footerHeadings.forEach(heading => {
+            heading.addEventListener('click', function() {
+                const list = this.nextElementSibling;
+                if (list.style.maxHeight) {
+                    list.style.maxHeight = null;
+                } else {
+                    list.style.maxHeight = list.scrollHeight + 'px';
+                }
+                this.classList.toggle('active');
+            });
+            
+            // Initialize all lists as closed
+            const list = heading.nextElementSibling;
+            list.style.maxHeight = null;
+            
+            // Add a plus/minus indicator
+            heading.style.position = 'relative';
+            heading.style.cursor = 'pointer';
+            
+            const indicator = document.createElement('span');
+            indicator.innerHTML = '+';
+            indicator.style.position = 'absolute';
+            indicator.style.right = '0';
+            indicator.style.top = '0';
+            indicator.style.fontSize = '18px';
+            heading.appendChild(indicator);
+            
+            heading.addEventListener('click', function() {
+                if (indicator.innerHTML === '+') {
+                    indicator.innerHTML = '-';
+                } else {
+                    indicator.innerHTML = '+';
+                }
+            });
+        });
+    }
+    
+    // Chat button functionality (optional)
+    const chatButton = document.querySelector('.chat-button');
+    
+    chatButton.addEventListener('click', function() {
+        alert('Chat functionality would open here');
+    });
+});
+  </script>
+</html>

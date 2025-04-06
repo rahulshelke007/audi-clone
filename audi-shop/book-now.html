@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Audi - Reserve Your Dream Car</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="https://images6.alphacoders.com/771/thumb-1920-771189.jpg" height="100%" width="100%" alt="Audi Logo"></a>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="audi-shop.html">STORE</a></li>
+                <li><a href="news.html">NEWS</a></li>
+                <li><a href="service.html">SERVICE</a></li>
+                <li><a href="test-drive.html">TEST DRIVE</a></li>
+                <li ><a href="book-now.html">BOOK NOW</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <div class="app-buttons">
+                <a href="#" class="app-button apple">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/1280px-Download_on_the_App_Store_Badge.svg.png" alt="App Store">
+                </a>
+                <a href="#" class="app-button google">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/1024px-Google_Play_Store_badge_EN.svg.png" alt="Google Play">
+                </a>
+            </div>
+            <a href="login.html" class="login-button">Login / Register</a>
+            <button class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Book Now Banner -->
+    <section class="page-banner book-now-banner">
+        <div class="banner-content">
+            <h1>Book Your Audi</h1>
+            <p>Reserve your dream car with a simple booking process</p>
+        </div>
+    </section>
+
+    <!-- Car Models -->
+    <section class="car-models">
+        <div class="container">
+            <h2>Available Models</h2>
+            <div class="model-filters">
+                <button class="model-filter active" data-filter="all">All Models</button>
+                <button class="model-filter" data-filter="sedan">Sedans</button>
+                <button class="model-filter" data-filter="suv">SUVs</button>
+                <button class="model-filter" data-filter="electric">Electric</button>
+                <button class="model-filter" data-filter="sports">Sports</button>
+            </div>
+            <div class="models-grid">
+                <div class="car-model-card" data-category="suv">
+                    <div class="model-image">
+                        <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Audi Q8">
+                        <div class="model-badge new">New</div>
+                    </div>
+                    <div class="model-details">
+                        <h3>Audi Q8</h3>
+                        <p class="model-price">Starting at ₹98,98,000</p>
+                        <div class="model-specs">
+                            <div class="spec">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>340 HP</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-bolt"></i>
+                                <span>5.9s</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-gas-pump"></i>
+                                <span>9.1 km/l</span>
+                            </div>
+                        </div>
+                        <div class="model-actions">
+                            <a href="#booking-form" class="book-model-btn" data-model="Q8">Book Now</a>
+                            <a href="#" class="model-details-btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="car-model-card" data-category="electric">
+                    <div class="model-image">
+                        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Audi e-tron">
+                        <div class="model-badge">Electric</div>
+                    </div>
+                    <div class="model-details">
+                        <h3>Audi e-tron</h3>
+                        <p class="model-price">Starting at ₹99,99,000</p>
+                        <div class="model-specs">
+                            <div class="spec">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>408 HP</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-bolt"></i>
+                                <span>5.7s</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-battery-full"></i>
+                                <span>400 km</span>
+                            </div>
+                        </div>
+                        <div class="model-actions">
+                            <a href="#booking-form" class="book-model-btn" data-model="e-tron">Book Now</a>
+                            <a href="#" class="model-details-btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="car-model-card" data-category="sedan">
+                    <div class="model-image">
+                        <img src="https://images.unsplash.com/photo-1606152421802-db97b9c7a11b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Audi A6">
+                    </div>
+                    <div class="model-details">
+                        <h3>Audi A6</h3>
+                        <p class="model-price">Starting at ₹54,42,000</p>
+                        <div class="model-specs">
+                            <div class="spec">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>245 HP</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-bolt"></i>
+                                <span>6.8s</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-gas-pump"></i>
+                                <span>14.1 km/l</span>
+                            </div>
+                        </div>
+                        <div class="model-actions">
+                            <a href="#booking-form" class="book-model-btn" data-model="A6">Book Now</a>
+                            <a href="#" class="model-details-btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="car-model-card" data-category="sports">
+                    <div class="model-image">
+                        <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Audi RS7">
+                    </div>
+                    <div class="model-details">
+                        <h3>Audi RS7</h3>
+                        <p class="model-price">Starting at ₹1,94,21,000</p>
+                        <div class="model-specs">
+                            <div class="spec">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>600 HP</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-bolt"></i>
+                                <span>3.6s</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-gas-pump"></i>
+                                <span>8.2 km/l</span>
+                            </div>
+                        </div>
+                        <div class="model-actions">
+                            <a href="#booking-form" class="book-model-btn" data-model="RS7">Book Now</a>
+                            <a href="#" class="model-details-btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="car-model-card" data-category="sedan">
+                    <div class="model-image">
+                        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Audi A4">
+                    </div>
+                    <div class="model-details">
+                        <h3>Audi A4</h3>
+                        <p class="model-price">Starting at ₹42,34,000</p>
+                        <div class="model-specs">
+                            <div class="spec">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>190 HP</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-bolt"></i>
+                                <span>7.3s</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-gas-pump"></i>
+                                <span>17.4 km/l</span>
+                            </div>
+                        </div>
+                        <div class="model-actions">
+                            <a href="#booking-form" class="book-model-btn" data-model="A4">Book Now</a>
+                            <a href="#" class="model-details-btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="car-model-card" data-category="suv">
+                    <div class="model-image">
+                        <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Audi Q5">
+                    </div>
+                    <div class="model-details">
+                        <h3>Audi Q5</h3>
+                        <p class="model-price">Starting at ₹58,93,000</p>
+                        <div class="model-specs">
+                            <div class="spec">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>249 HP</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-bolt"></i>
+                                <span>6.3s</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-gas-pump"></i>
+                                <span>13.5 km/l</span>
+                            </div>
+                        </div>
+                        <div class="model-actions">
+                            <a href="#booking-form" class="book-model-btn" data-model="Q5">Book Now</a>
+                            <a href="#" class="model-details-btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form -->
+    <section id="booking-form" class="booking-form">
+        <div class="container">
+            <div class="form-container">
+                <h2>Book Your Audi</h2>
+                <p>Fill in the details below to reserve your Audi. A representative will contact you shortly.</p>
+                <form id="car-booking-form">
+                    <div class="form-section">
+                        <h3>1. Select Your Model</h3>
+                        <div class="model-selection">
+                            <div class="form-group">
+                                <label for="car-model">Model</label>
+                                <select id="car-model" name="car-model" required>
+                                    <option value="">Select Model</option>
+                                    <option value="Q8">Audi Q8</option>
+                                    <option value="e-tron">Audi e-tron</option>
+                                    <option value="A6">Audi A6</option>
+                                    <option value="RS7">Audi RS7</option>
+                                    <option value="A4">Audi A4</option>
+                                    <option value="Q5">Audi Q5</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="car-variant">Variant</label>
+                                <select id="car-variant" name="car-variant" required>
+                                    <option value="">Select Variant</option>
+                                    <!-- Options will be populated based on selected model -->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="car-color">Exterior Color</label>
+                            <div class="color-options">
+                                <div class="color-option">
+                                    <input type="radio" id="color-black" name="car-color" value="black">
+                                    <label for="color-black" style="background-color: #000000;"></label>
+                                    <span>Mythos Black</span>
+                                </div>
+                                <div class="color-option">
+                                    <input type="radio" id="color-white" name="car-color" value="white">
+                                    <label for="color-white" style="background-color: #ffffff; border: 1px solid #ddd;"></label>
+                                    <span>Glacier White</span>
+                                </div>
+                                <div class="color-option">
+                                    <input type="radio" id="color-silver" name="car-color" value="silver">
+                                    <label for="color-silver" style="background-color: #C0C0C0;"></label>
+                                    <span>Floret Silver</span>
+                                </div>
+                                <div class="color-option">
+                                    <input type="radio" id="color-blue" name="car-color" value="blue">
+                                    <label for="color-blue" style="background-color: #1C3879;"></label>
+                                    <span>Navarra Blue</span>
+                                </div>
+                                <div class="color-option">
+                                    <input type="radio" id="color-red" name="car-color" value="red">
+                                    <label for="color-red" style="background-color: #8B0000;"></label>
+                                    <span>Tango Red</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3>2. Personal Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name">First Name</label>
+                                <input type="text" id="first-name" name="first-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Last Name</label>
+                                <input type="text" id="last-name" name="last-name" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" name="address" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" id="city" name="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State</label>
+                                <select id="state" name="state" required>
+                                    <option value="">Select State</option>
+                                    <option value="AP">Andhra Pradesh</option>
+                                    <option value="AR">Arunachal Pradesh</option>
+                                    <option value="AS">Assam</option>
+                                    <option value="BR">Bihar</option>
+                                    <option value="CT">Chhattisgarh</option>
+                                    <option value="GA">Goa</option>
+                                    <option value="GJ">Gujarat</option>
+                                    <option value="HR">Haryana</option>
+                                    <option value="HP">Himachal Pradesh</option>
+                                    <option value="JH">Jharkhand</option>
+                                    <option value="KA">Karnataka</option>
+                                    <option value="KL">Kerala</option>
+                                    <option value="MP">Madhya Pradesh</option>
+                                    <option value="MH">Maharashtra</option>
+                                    <option value="MN">Manipur</option>
+                                    <option value="ML">Meghalaya</option>
+                                    <option value="MZ">Mizoram</option>
+                                    <option value="NL">Nagaland</option>
+                                    <option value="OR">Odisha</option>
+                                    <option value="PB">Punjab</option>
+                                    <option value="RJ">Rajasthan</option>
+                                    <option value="SK">Sikkim</option>
+                                    <option value="TN">Tamil Nadu</option>
+                                    <option value="TG">Telangana</option>
+                                    <option value="TR">Tripura</option>
+                                    <option value="UT">Uttarakhand</option>
+                                    <option value="UP">Uttar Pradesh</option>
+                                    <option value="WB">West Bengal</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="pincode">Pincode</label>
+                                <input type="text" id="pincode" name="pincode" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3>3. Dealership & Financing</h3>
+                        <div class="form-group">
+                            <label for="dealership">Preferred Dealership</label>
+                            <select id="dealership" name="dealership" required>
+                                <option value="">Select Dealership</option>
+                                <option value="delhi">Audi Delhi</option>
+                                <option value="mumbai">Audi Mumbai</option>
+                                <option value="bangalore">Audi Bangalore</option>
+                                <option value="chennai">Audi Chennai</option>
+                                <option value="hyderabad">Audi Hyderabad</option>
+                                <option value="pune">Audi Pune</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Financing Option</label>
+                            <div class="radio-options">
+                                <div class="radio-option">
+                                    <input type="radio" id="finance-cash" name="finance-option" value="cash" checked>
+                                    <label for="finance-cash">Cash Payment</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="finance-loan" name="finance-option" value="loan">
+                                    <label for="finance-loan">Bank Loan</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="finance-audi" name="finance-option" value="audi-finance">
+                                    <label for="finance-audi">Audi Financial Services</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group finance-details" style="display: none;">
+                            <label for="down-payment">Down Payment (₹)</label>
+                            <input type="number" id="down-payment" name="down-payment" min="0">
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3>4. Additional Information</h3>
+                        <div class="form-group">
+                            <label for="comments">Comments or Special Requests</label>
+                            <textarea id="comments" name="comments" rows="3"></textarea>
+                        </div>
+                        <div class="form-group consent-group">
+                            <input type="checkbox" id="consent" name="consent" required>
+                            <label for="consent">I agree to the <a href="#">terms and conditions</a> and consent to Audi India contacting me regarding my booking.</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="submit-booking">Submit Booking</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Confirmation Modal -->
+    <div class="booking-confirmation-modal">
+        <div class="confirmation-content">
+            <div class="confirmation-header">
+                <h3>Booking Confirmed!</h3>
+                <button class="close-confirmation">&times;</button>
+            </div>
+            <div class="confirmation-body">
+                <div class="confirmation-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <p>Thank you for booking your Audi. Your booking has been successfully placed.</p>
+                <div class="booking-details">
+                    <p>Booking Reference: <span id="booking-reference"></span></p>
+                    <p>A confirmation email has been sent to <span id="booking-email"></span></p>
+                </div>
+                <p>An Audi representative will contact you within 24 hours to discuss the next steps.</p>
+            </div>
+            <div class="confirmation-footer">
+                <button class="continue-browsing-btn">Continue Browsing</button>
+            </div>
+        </div>
+    </div>
+    <div class="booking-overlay"></div>
+
+    <!-- Cookie Consent -->
+    <div class="cookie-consent">
+        <p>We use cookies to improve your online experience. By continuing to browse this website you accept the use of cookies. <a href="#">Privacy Policy</a></p>
+        <button class="accept-cookies">I agree</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Customer Support: 1800-123-4567</p>
+                <p>Email: customercare@audi.in</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Audi India. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

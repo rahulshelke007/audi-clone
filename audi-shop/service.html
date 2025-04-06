@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audi Service - Maintenance and Support</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="https://images6.alphacoders.com/771/thumb-1920-771189.jpg" height="100%" width="100%" alt="Audi Logo"></a>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="audi-shop.html">STORE</a></li>
+                <li><a href="news.html">NEWS</a></li>
+                <li class="active"><a href="service.html">SERVICE</a></li>
+                <li><a href="test-drive.html">TEST DRIVE</a></li>
+                <li ><a href="book-now.html">BOOK NOW</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <div class="app-buttons">
+                <a href="#" class="app-button apple">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/1280px-Download_on_the_App_Store_Badge.svg.png" alt="App Store">
+                </a>
+                <a href="#" class="app-button google">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/1024px-Google_Play_Store_badge_EN.svg.png" alt="Google Play">
+                </a>
+            </div>
+            <a href="login.html" class="login-button">Login / Register</a>
+            <button class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Service Banner -->
+    <section class="page-banner service-banner">
+        <div class="banner-content">
+            <h1>Audi Service</h1>
+            <p>Premium care for your premium vehicle</p>
+        </div>
+    </section>
+
+    <!-- Service Options -->
+    <section class="service-options">
+        <div class="container">
+            <h2>Our Service Offerings</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Regular Maintenance</h3>
+                    <p>Keep your Audi in perfect condition with our scheduled maintenance services.</p>
+                    <a href="#" class="service-btn">Book Service</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-car-crash"></i>
+                    </div>
+                    <h3>Accident Repair</h3>
+                    <p>Our certified technicians ensure your Audi is restored to factory standards.</p>
+                    <a href="#" class="service-btn">Book Service</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-car-battery"></i>
+                    </div>
+                    <h3>Battery Service</h3>
+                    <p>Professional battery check and replacement for all Audi models.</p>
+                    <a href="#" class="service-btn">Book Service</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-oil-can"></i>
+                    </div>
+                    <h3>Oil Change</h3>
+                    <p>Premium oil change service using only Audi-approved lubricants.</p>
+                    <a href="#" class="service-btn">Book Service</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3>AC Service</h3>
+                    <p>Complete air conditioning check and service for optimal performance.</p>
+                    <a href="#" class="service-btn">Book Service</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Extended Warranty</h3>
+                    <p>Extend your Audi's warranty for additional peace of mind.</p>
+                    <a href="#" class="service-btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Booking -->
+    <section class="service-booking">
+        <div class="container">
+            <div class="booking-content">
+                <div class="booking-info">
+                    <h2>Book Your Service</h2>
+                    <p>Schedule a service appointment at your nearest Audi Service Center.</p>
+                    <ul class="booking-benefits">
+                        <li><i class="fas fa-check-circle"></i> Genuine Audi parts</li>
+                        <li><i class="fas fa-check-circle"></i> Audi certified technicians</li>
+                        <li><i class="fas fa-check-circle"></i> State-of-the-art equipment</li>
+                        <li><i class="fas fa-check-circle"></i> Complimentary vehicle inspection</li>
+                        <li><i class="fas fa-check-circle"></i> Pickup and drop service available</li>
+                    </ul>
+                </div>
+                <div class="booking-form">
+                    <form id="service-form">
+                        <div class="form-group">
+                            <label for="car-model">Car Model</label>
+                            <select id="car-model" name="car-model" required>
+                                <option value="">Select Model</option>
+                                <option value="A3">Audi A3</option>
+                                <option value="A4">Audi A4</option>
+                                <option value="A6">Audi A6</option>
+                                <option value="A8">Audi A8</option>
+                                <option value="Q2">Audi Q2</option>
+                                <option value="Q5">Audi Q5</option>
+                                <option value="Q7">Audi Q7</option>
+                                <option value="Q8">Audi Q8</option>
+                                <option value="e-tron">Audi e-tron</option>
+                                <option value="RS">Audi RS Models</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="service-type">Service Type</label>
+                            <select id="service-type" name="service-type" required>
+                                <option value="">Select Service</option>
+                                <option value="regular">Regular Maintenance</option>
+                                <option value="repair">Repair Service</option>
+                                <option value="battery">Battery Service</option>
+                                <option value="oil">Oil Change</option>
+                                <option value="ac">AC Service</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="service-date">Preferred Date</label>
+                                <input type="date" id="service-date" name="service-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="service-time">Preferred Time</label>
+                                <select id="service-time" name="service-time" required>
+                                    <option value="">Select Time</option>
+                                    <option value="09:00">09:00 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="14:00">02:00 PM</option>
+                                    <option value="15:00">03:00 PM</option>
+                                    <option value="16:00">04:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="service-center">Service Center</label>
+                            <select id="service-center" name="service-center" required>
+                                <option value="">Select Service Center</option>
+                                <option value="delhi">Audi Delhi</option>
+                                <option value="mumbai">Audi Mumbai</option>
+                                <option value="bangalore">Audi Bangalore</option>
+                                <option value="chennai">Audi Chennai</option>
+                                <option value="hyderabad">Audi Hyderabad</option>
+                                <option value="pune">Audi Pune</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-name">Your Name</label>
+                            <input type="text" id="customer-name" name="customer-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-phone">Phone Number</label>
+                            <input type="tel" id="customer-phone" name="customer-phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-email">Email</label>
+                            <input type="email" id="customer-email" name="customer-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="additional-notes">Additional Notes</label>
+                            <textarea id="additional-notes" name="additional-notes" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="submit-service">Book Service</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Centers -->
+    <section class="service-centers">
+        <div class="container">
+            <h2>Our Service Centers</h2>
+            <div class="centers-grid">
+                <div class="center-card">
+                    <div class="center-image">
+                        <img src="https://images.unsplash.com/photo-1540066019607-e5f69323a8dc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Audi Delhi Service Center">
+                    </div>
+                    <div class="center-info">
+                        <h3>Audi Delhi</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Plot No. 123, Mathura Road, New Delhi</p>
+                        <p><i class="fas fa-phone"></i> 011-12345678</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 6:00 PM</p>
+                        <a href="#" class="center-btn">Get Directions</a>
+                    </div>
+                </div>
+                <div class="center-card">
+                    <div class="center-image">
+                        <img src="https://images.unsplash.com/photo-1560253414-f65d1f5a1b5c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Audi Mumbai Service Center">
+                    </div>
+                    <div class="center-info">
+                        <h3>Audi Mumbai</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> 456 Western Express Highway, Mumbai</p>
+                        <p><i class="fas fa-phone"></i> 022-87654321</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 6:00 PM</p>
+                        <a href="#" class="center-btn">Get Directions</a>
+                    </div>
+                </div>
+                <div class="center-card">
+                    <div class="center-image">
+                        <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Audi Bangalore Service Center">
+                    </div>
+                    <div class="center-info">
+                        <h3>Audi Bangalore</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> 789 Whitefield Main Road, Bangalore</p>
+                        <p><i class="fas fa-phone"></i> 080-98765432</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 6:00 PM</p>
+                        <a href="#" class="center-btn">Get Directions</a>
+                    </div>
+                </div>
+            </div>
+            <div class="view-more-centers">
+                <a href="#" class="view-all-centers">View All Service Centers</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cookie Consent -->
+    <div class="cookie-consent">
+        <p>We use cookies to improve your online experience. By continuing to browse this website you accept the use of cookies. <a href="#">Privacy Policy</a></p>
+        <button class="accept-cookies">I agree</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Customer Support: 1800-123-4567</p>
+                <p>Email: customercare@audi.in</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Audi India. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
