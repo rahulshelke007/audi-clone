@@ -6,6 +6,8 @@
     <title>Book Your Audi - Reserve Your Dream Car</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Add this to the head section of your shop.html file -->
+    <link rel="stylesheet" href="styles-fix.css">
 </head>
 <body>
     <!-- Header Navigation -->
@@ -15,19 +17,19 @@
         </div>
         <nav class="main-nav">
             <ul>
-                <li><a href="audi-shop.html">STORE</a></li>
+                <li class="active"><a href="shop.html">STORE</a></li>
                 <li><a href="news.html">NEWS</a></li>
                 <li><a href="service.html">SERVICE</a></li>
                 <li><a href="test-drive.html">TEST DRIVE</a></li>
-                <li ><a href="book-now.html">BOOK NOW</a></li>
+                <li><a href="../index.html">Home</a></li>
             </ul>
         </nav>
         <div class="header-actions">
             <div class="app-buttons">
-                <a href="https://www.apple.com/in/store?cid=aos-IN-kwgo-brand" class="app-button apple">
+                <a href="#" class="app-button apple">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/1280px-Download_on_the_App_Store_Badge.svg.png" alt="App Store">
                 </a>
-                <a href="https://play.google.com/store/games?hl=en_IN" class="app-button google">
+                <a href="#" class="app-button google">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/1024px-Google_Play_Store_badge_EN.svg.png" alt="Google Play">
                 </a>
             </div>
@@ -54,10 +56,6 @@
             <h2>Available Models</h2>
             <div class="model-filters">
                 <button class="model-filter active" data-filter="all">All Models</button>
-                <button class="model-filter" data-filter="sedan">Sedans</button>
-                <button class="model-filter" data-filter="suv">SUVs</button>
-                <button class="model-filter" data-filter="electric">Electric</button>
-                <button class="model-filter" data-filter="sports">Sports</button>
             </div>
             <div class="models-grid">
                 <div class="car-model-card" data-category="suv">
@@ -90,7 +88,7 @@
                 </div>
                 <div class="car-model-card" data-category="electric">
                     <div class="model-image">
-                        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Audi e-tron">
+                        <img src="https://imgd.aeplcdn.com/370x208/n/cw/ec/152943/q8-e-tron-exterior-right-front-three-quarter-5.jpeg?isig=0&q=80" alt="Audi e-tron">
                         <div class="model-badge">Electric</div>
                     </div>
                     <div class="model-details">
@@ -145,7 +143,7 @@
                 </div>
                 <div class="car-model-card" data-category="sports">
                     <div class="model-image">
-                        <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Audi RS7">
+                        <img src="https://hips.hearstapps.com/hmg-prod/images/2024-audi-rs7-performance-beach-front-2-1669663938.jpg?crop=0.478xw:0.318xh;0.413xw,0.421xh&resize=1200:*" alt="Audi RS7">
                     </div>
                     <div class="model-details">
                         <h3>Audi RS7</h3>
@@ -172,7 +170,7 @@
                 </div>
                 <div class="car-model-card" data-category="sedan">
                     <div class="model-image">
-                        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Audi A4">
+                        <img src="https://spn-sta.spinny.com/blog/20221206194008/Audi-A4-1160x870.webp?compress=true&quality=80&w=1200&dpr=2.6" alt="Audi A4">
                     </div>
                     <div class="model-details">
                         <h3>Audi A4</h3>
@@ -199,7 +197,7 @@
                 </div>
                 <div class="car-model-card" data-category="suv">
                     <div class="model-image">
-                        <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Audi Q5">
+                        <img src="https://imgd.aeplcdn.com/664x374/n/cw/ec/53591/q5-exterior-right-front-three-quarter-36.jpeg?isig=0&q=80" alt="Audi Q5">
                     </div>
                     <div class="model-details">
                         <h3>Audi Q5</h3>
@@ -252,9 +250,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="car-variant">Variant</label>
-                                <select id="car-variant" name="car-variant" required>
+                                <select id="car-variant" name="car-variant" >
                                     <option value="">Select Variant</option>
                                     <!-- Options will be populated based on selected model -->
+                                     <option value="">Pro</option>
+                                     <option value="">Max</option>
                                 </select>
                             </div>
                         </div>
@@ -420,29 +420,29 @@
     </section>
 
     <!-- Booking Confirmation Modal -->
-    <div class="booking-confirmation-modal">
-        <div class="confirmation-content">
-            <div class="confirmation-header">
-                <h3>Booking Confirmed!</h3>
-                <button class="close-confirmation">&times;</button>
+<div class="booking-confirmation-modal">
+    <div class="confirmation-content">
+        <div class="confirmation-header">
+            <h3>Booking Confirmed!</h3>
+            <button class="close-confirmation">&times;</button>
+        </div>
+        <div class="confirmation-body">
+            <div class="confirmation-icon">
+                <i class="fas fa-check-circle"></i>
             </div>
-            <div class="confirmation-body">
-                <div class="confirmation-icon">
-                    <i class="fas fa-check-circle"></i>
-                </div>
-                <p>Thank you for booking your Audi. Your booking has been successfully placed.</p>
-                <div class="booking-details">
-                    <p>Booking Reference: <span id="booking-reference"></span></p>
-                    <p>A confirmation email has been sent to <span id="booking-email"></span></p>
-                </div>
-                <p>An Audi representative will contact you within 24 hours to discuss the next steps.</p>
+            <p>Thank you for booking your Audi. Your booking has been successfully placed.</p>
+            <div class="booking-details">
+                <p>Booking Reference: <span id="booking-reference"></span></p>
+                <p>A confirmation email has been sent to <span id="booking-email"></span></p>
             </div>
-            <div class="confirmation-footer">
-                <button class="continue-browsing-btn">Continue Browsing</button>
-            </div>
+            <p>An Audi representative will contact you within 24 hours to discuss the next steps.</p>
+        </div>
+        <div class="confirmation-footer">
+            <button class="continue-browsing-btn">Continue Browsing</button>
         </div>
     </div>
-    <div class="booking-overlay"></div>
+</div>
+<div class="booking-overlay"></div>
 
     <!-- Cookie Consent -->
     <div class="cookie-consent">
@@ -456,7 +456,7 @@
             <div class="footer-section">
                 <h4>Contact Us</h4>
                 <p>Customer Support: 1800-123-4567</p>
-                <p>Email: customercare@audi.in</p>
+                <p>Email: <a href="/cdn-cgi/l/email-protection" class="_cf_email_" data-cfemail="84e7f1f7f0ebe9e1f6e7e5f6e1c4e5f1e0edaaedea">[email&#160;protected]</a></p>
             </div>
             <div class="footer-section">
                 <h4>Quick Links</h4>
@@ -476,12 +476,10 @@
                     <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Audi India. All rights reserved.</p>
-        </div>
-    </footer>
-
+         </div>
+         </footer>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <!-- Make sure this is at the end of your body section, just before the closing </body> tag -->
     <script src="script.js"></script>
 </body>
-</html>
+    </html>
